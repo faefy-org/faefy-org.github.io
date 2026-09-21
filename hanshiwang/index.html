@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="韩师网提供权威的韩语学习资源、TOPIK备考指南及韩国留学资讯。从入门发音到高级语法，从历年真题解析到院校申请攻略，助您轻松掌握韩语，实现留学梦想。">
+    <meta name="keywords" content="韩师网,韩语学习,TOPIK备考,韩国留学,韩语语法,韩语发音,韩国大学">
+    <title>韩师网-权威韩语学习平台与韩国留学资讯指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f0f4f8;
+            --accent-color: #ff6b6b;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #ffffff;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #004494;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Main Content */
+        main {
+            padding: 60px 0;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .tab-btn {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: var(--primary-color);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* TOPIK Section */
+        .topik-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .exam-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+
+        .exam-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .exam-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #e3f2fd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .exam-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .exam-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .exam-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .exam-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Resources Grid */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .resource-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: white;
+        }
+
+        .resource-img {
+            width: 100%;
+            height: 160px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .resource-info {
+            padding: 15px;
+        }
+
+        .resource-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .resource-info p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Study Path */
+        .path-container {
+            background-color: var(--secondary-color);
+            border-radius: var(--border-radius);
+            padding: 40px;
+        }
+
+        .path-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 30px;
+        }
+
+        .path-steps::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #cbd5e0;
+            z-index: 0;
+        }
+
+        .step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border: 3px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .step h4 {
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            background-color: #fcfcfc;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            display: none;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a202c;
+            color: #cbd5e0;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #2d3748;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .path-steps {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .path-steps::before {
+                width: 2px;
+                height: 100%;
+                left: 25px;
+                top: 0;
+            }
+
+            .step-number {
+                position: absolute;
+                left: -25px;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span style="color:var(--primary-color); font-size:1.8rem;">韩</span>
+                <span>师网</span>
+            </a>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#topik">TOPIK备考</a></li>
+                    <li><a href="#resources">学习资源</a></li>
+                    <li><a href="#path">学习路径</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline" onclick="showToast('请访问韩师网APP获取完整功能')">登录</a>
+                <a href="#" class="btn btn-primary" onclick="showToast('注册通道维护中，请稍后再试')">注册</a>
+            </div>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>开启韩语学习之旅</h1>
+                <p>韩师网为您提供从零基础到TOPIK高级的全方位韩语学习方案。海量真题、精准语法解析、地道口语素材，助您轻松攻克韩语难关。</p>
+                <div class="hero-btns">
+                    <a href="#resources" class="btn btn-primary">开始学习</a>
+                    <a href="#topik" class="btn btn-outline">查看考试</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>50万+</h3>
+                        <p>注册学员</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>2000+</h3>
+                        <p>学习视频</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Top1</h3>
+                        <p>韩语社区口碑</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOPIK Preparation Section -->
+        <section class="container" id="topik">
+            <h2 class="section-title">TOPIK 考试指南</h2>
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'level1')">初级 (1-2级)</button>
+                <button class="tab-btn" onclick="openTab(event, 'level2')">中级 (3-4级)</button>
+                <button class="tab-btn" onclick="openTab(event, 'level3')">高级 (5-6级)</button>
+            </div>
+
+            <div id="level1" class="tab-content active">
+                <div class="topik-grid">
+                    <article class="exam-card">
+                        <div class="exam-icon">Ⅰ</div>
+                        <h3>初级考试结构</h3>
+                        <p>TOPIK I 主要测试基础语法和日常会话能力，满分200分，100分及格。</p>
+                        <ul class="exam-list">
+                            <li>听力：30分钟，100题</li>
+                            <li>阅读：60分钟，100题</li>
+                            <li>重点：基础敬语、日常场景</li>
+                        </ul>
+                    </article>
+                    <article class="exam-card">
+                        <div class="exam-icon">备考</div>
+                        <h3>初级学习重点</h3>
+                        <p>掌握基本的问候语、数字、时间表达，学会使用“하다”动词和“이다”形容词。</p>
+                        <ul class="exam-list">
+                            <li>掌握20个基础句型</li>
+                            <li>积累3000-4000基础词汇</li>
+                            <li>熟悉考试题型节奏</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+
+            <div id="level2" class="tab-content">
+                <div class="topik-grid">
+                    <article class="exam-card">
+                        <div class="exam-icon">Ⅱ</div>
+                        <h3>中级考试结构</h3>
+                        <p>TOPIK II 涵盖社会、文化、商务等多领域内容，满分300分，150分及格。</p>
+                        <ul class="exam-list">
+                            <li>听力：60分钟，50题</li>
+                            <li>阅读：100分钟，50题</li>
+                            <li>重点：逻辑推理、长文理解</li>
+                        </ul>
+                    </article>
+                    <article class="exam-card">
+                        <div class="exam-icon">冲刺</div>
+                        <h3>中级进阶策略</h3>
+                        <p>提升复杂句式应用能力，扩大阅读量，关注韩国社会热点话题。</p>
+                        <ul class="exam-list">
+                            <li>连接词的正确使用</li>
+                            <li>复杂语法点解析</li>
+                            <li>限时阅读训练</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+
+            <div id="level3" class="tab-content">
+                <div class="topik-grid">
+                    <article class="exam-card">
+                        <div class="exam-icon">Ⅲ</div>
+                        <h3>高级考试特点</h3>
+                        <p>侧重学术性文章和深层文化理解，词汇量要求极高，考察逻辑与批判思维。</p>
+                        <ul class="exam-list">
+                            <li>高难度词汇与成语</li>
+                            <li>长篇学术文章阅读</li>
+                            <li>口语/写作专项训练</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="container" id="resources">
+            <h2 class="section-title">精选学习资源</h2>
+            <div class="resource-grid">
+                <article class="resource-item">
+                    <img src="https://picsum.photos/seed/korean1/400/250" alt="韩语发音入门" class="resource-img">
+                    <div class="resource-info">
+                        <h4>韩语发音完全指南</h4>
+                        <p>零基础必备，掌握松音、紧音与送气音的区别。</p>
+                    </div>
+                </article>
+                <article class="resource-item">
+                    <img src="https://picsum.photos/seed/korean2/400/250" alt="TOPIK真题解析" class="resource-img">
+                    <div class="resource-info">
+                        <h4>历年TOPIK真题解析</h4>
+                        <p>收录近10年真题，附带详细解题思路与高分技巧。</p>
+                    </div>
+                </article>
+                <article class="resource-item">
+                    <img src="https://picsum.photos/seed/korean3/400/250" alt="韩语语法大全" class="resource-img">
+                    <div class="resource-info">
+                        <h4>韩语语法速查手册</h4>
+                        <p>分类整理核心语法点，配有例句与易错点提示。</p>
+                    </div>
+                </article>
+                <article class="resource-item">
+                    <img src="https://picsum.photos/seed/korean4/400/250" alt="韩国留学攻略" class="resource-img">
+                    <div class="resource-info">
+                        <h4>韩国大学申请攻略</h4>
+                        <p>从选校到面试，一站式解决韩国留学申请难题。</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Study Path Section -->
+        <section class="container" id="path">
+            <h2 class="section-title">科学学习路径</h2>
+            <div class="path-container">
+                <div class="path-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>基础发音</h4>
+                        <p>学习韩语字母表，掌握发音规则，能够进行简单的自我介绍。</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>初级词汇与语法</h4>
+                        <p>积累核心词汇，掌握基础句型，开始阅读简单的韩语短文。</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>中级进阶</h4>
+                        <p>学习复杂语法，大量阅读新闻与社论，提升听力理解能力。</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h4>高级冲刺</h4>
+                        <p>针对TOPIK考试进行专项训练，模拟实战，查漏补缺。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <h2 class="section-title">常见问题</h2>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">TOPIK考试一年考几次？ <span>+</span></div>
+                    <div class="faq-answer">
+                        TOPIK考试通常每年举办4次，分别在1月、4月、7月和10月。具体考试时间请关注韩国教育课程评价院官网公告。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">零基础多久能过TOPIK 3级？ <span>+</span></div>
+                    <div class="faq-answer">
+                        如果每天坚持学习2-3小时，通常需要6-9个月的时间可以达到TOPIK 3级水平。这取决于个人的学习效率和基础。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">韩师网提供哪些服务？ <span>+</span></div>
+                    <div class="faq-answer">
+                        韩师网提供韩语学习资讯、TOPIK真题下载、语法解析、韩国留学指南以及在线社区交流服务。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">如何报名TOPIK考试？ <span>+</span></div>
+                    <div class="faq-answer">
+                        目前TOPIK考试主要在韩国本土及部分海外指定考点报名。具体报名流程和链接请参考官方发布的考试通知。
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于韩师网</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">韩师网致力于打造最专业的韩语学习社区，为每一位学习者提供精准的备考资源和实用的留学资讯。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>学习栏目</h4>
+                    <ul>
+                        <li><a href="#">韩语发音</a></li>
+                        <li><a href="#">TOPIK语法</a></li>
+                        <li><a href="#">韩语词汇</a></li>
+                        <li><a href="#">韩语听力</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>留学服务</h4>
+                    <ul>
+                        <li><a href="#">韩国大学排名</a></li>
+                        <li><a href="#">专业申请指南</a></li>
+                        <li><a href="#">奖学金申请</a></li>
+                        <li><a href="#">签证办理</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>邮箱：contact@han-shi.com</li>
+                        <li>电话：400-123-4567</li>
+                        <li>地址：北京市朝阳区教育园区</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 韩师网 版权所有 | 仅供学习交流使用</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Switching Logic
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            setTimeout(() => {
+                document.getElementById(tabName).classList.add("active");
+            }, 10);
+            evt.currentTarget.className += " active";
+        }
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            var nav = document.getElementById("navMenu");
+            nav.classList.toggle("active");
+        }
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            var parent = element.parentElement;
+            parent.classList.toggle("active");
+            var icon = element.querySelector('span');
+            if (parent.classList.contains("active")) {
+                icon.textContent = "-";
+            } else {
+                icon.textContent = "+";
+            }
+        }
+
+        // Simple Toast Notification (Mock)
+        function showToast(message) {
+            var toast = document.createElement("div");
+            toast.textContent = message;
+            toast.style.position = "fixed";
+            toast.style.bottom = "20px";
+            toast.style.left = "50%";
+            toast.style.transform = "translateX(-50%)";
+            toast.style.backgroundColor = "rgba(0,0,0,0.8)";
+            toast.style.color = "white";
+            toast.style.padding = "12px 24px";
+            toast.style.borderRadius = "4px";
+            toast.style.zIndex = "2000";
+            toast.style.transition = "opacity 0.3s";
+            document.body.appendChild(toast);
+            setTimeout(function() {
+                toast.style.opacity = "0";
+                setTimeout(function() { document.body.removeChild(toast); }, 300);
+            }, 3000);
+        }
+    </script>
+</body>
+  </html>
