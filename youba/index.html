@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="游吧 - 专业聚会游戏平台，提供桌游、剧本杀、互动游戏规则大全、聚会策划方案及热门游戏推荐，让您的每一次聚会都充满欢笑与乐趣。">
+    <meta name="keywords" content="游吧,聚会游戏,桌游规则,剧本杀,聚会策划,互动游戏">
+    <title>游吧 - 聚会游戏与互动娱乐指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --primary-hover: #4f46e5;
+            --secondary-color: #ec4899;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --border-radius: 12px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-sub);
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e0e7ff 0%, #fae8ff 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-sub);
+            margin-bottom: 32px;
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            background: white;
+            padding: 8px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 0 20px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-box button {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 40px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 24px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .view-all {
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Game Cards Grid */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 24px;
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 160px;
+            background-color: #e2e8f0;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 16px;
+        }
+
+        .card-tag {
+            font-size: 12px;
+            color: var(--primary-color);
+            background: #e0e7ff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: var(--text-sub);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 10px;
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .rank-number {
+            width: 20px;
+            height: 20px;
+            background: #f1f5f9;
+            color: var(--text-sub);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-right: 10px;
+            font-weight: 600;
+        }
+
+        .rank-list li:nth-child(1) .rank-number { background: #fee2e2; color: #ef4444; }
+        .rank-list li:nth-child(2) .rank-number { background: #ffedd5; color: #f97316; }
+        .rank-list li:nth-child(3) .rank-number { background: #fef9c3; color: #eab308; }
+
+        .rank-list a {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #f1f5f9;
+            color: var(--text-sub);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .tag:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .guide-item {
+            display: flex;
+            gap: 16px;
+        }
+
+        .guide-icon {
+            width: 48px;
+            height: 48px;
+            background: #e0e7ff;
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .guide-content h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .guide-content p {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .search-box {
+                flex-direction: column;
+                border-radius: 12px;
+            }
+
+            .search-box input {
+                width: 100%;
+                border-radius: 8px;
+                margin-bottom: 8px;
+            }
+
+            .search-box button {
+                width: 100%;
+                border-radius: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path>
+                    <path d="M8.5 8.5v.01"></path>
+                    <path d="M16 15.5v.01"></path>
+                    <path d="M12 12v.01"></path>
+                </svg>
+                <span>游吧</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">热门桌游</a></li>
+                    <li><a href="#">剧本杀</a></li>
+                    <li><a href="#">聚会攻略</a></li>
+                    <li><a href="#">社区论坛</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="cta-btn">开始组局</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>让聚会更有趣</h1>
+                <p>汇集全网最全的聚会游戏规则、剧本杀推荐与线下活动策划指南。无论您是组织家庭聚餐、朋友派对还是公司团建，这里都有适合您的方案。</p>
+                <div class="search-box">
+                    <input type="text" placeholder="搜索游戏名称，如 '狼人杀'、'阿瓦隆'...">
+                    <button>搜索</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Left Content -->
+            <div class="main-content">
+                
+                <!-- Recommended Games -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">热门游戏推荐</h2>
+                        <a href="#" class="view-all">查看全部 &rarr;</a>
+                    </div>
+                    <div class="game-grid">
+                        <article class="game-card">
+                            <img src="https://picsum.photos/seed/dice/300/200" alt="狼人杀" class="card-image">
+                            <div class="card-content">
+                                <span class="card-tag">语言逻辑</span>
+                                <h3 class="card-title">狼人杀</h3>
+                                <p class="card-desc">经典的身份推理游戏，适合8人以上聚会，考验口才与心理博弈。</p>
+                            </div>
+                        </article>
+                        <article class="game-card">
+                            <img src="https://picsum.photos/seed/poker/300/200" alt="阿瓦隆" class="card-image">
+                            <div class="card-content">
+                                <span class="card-tag">团队合作</span>
+                                <h3 class="card-title">阿瓦隆</h3>
+                                <p class="card-desc">好人阵营团队建设游戏，核心在于信息不对称下的沟通与信任。</p>
+                            </div>
+                        </article>
+                        <article class="game-card">
+                            <img src="https://picsum.photos/seed/cards/300/200" alt="只言片语" class="card-image">
+                            <div class="card-content">
+                                <span class="card-tag">轻松休闲</span>
+                                <h3 class="card-title">只言片语</h3>
+                                <p class="card-desc">无需语言交流的绘画游戏，画风越怪诞，故事越精彩。</p>
+                            </div>
+                        </article>
+                        <article class="game-card">
+                            <img src="https://picsum.photos/seed/beer/300/200" alt="血染钟楼" class="card-image">
+                            <div class="card-content">
+                                <span class="card-tag">机制推理</span>
+                                <h3 class="card-title">血染钟楼</h3>
+                                <p class="card-desc">近期最火的社交推理游戏，单人角色与多人技能的完美结合。</p>
+                            </div>
+                        </article>
+                        <article class="game-card">
+                            <img src="https://picsum.photos/seed/monopoly/300/200" alt="大富翁" class="card-image">
+                            <div class="card-content">
+                                <span class="card-tag">策略经营</span>
+                                <h3 class="card-title">大富翁</h3>
+                                <p class="card-desc">家庭聚会必备，运气与策略并存，轻松愉快的投资体验。</p>
+                            </div>
+                        </article>
+                        <article class="game-card">
+                            <img src="https://picsum.photos/seed/chess/300/200" alt="UNO" class="card-image">
+                            <div class="card-content">
+                                <span class="card-tag">竞技快节奏</span>
+                                <h3 class="card-title">UNO</h3>
+                                <p class="card-desc">简单易学，节奏明快，是破冰和派对中人气极高的游戏。</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Guide Section -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">聚会策划指南</h2>
+                        <a href="#" class="view-all">更多攻略 &rarr;</a>
+                    </div>
+                    <div class="guide-section">
+                        <div class="guide-grid">
+                            <div class="guide-item">
+                                <div class="guide-icon">👥</div>
+                                <div class="guide-content">
+                                    <h3>人数匹配</h3>
+                                    <p>不同游戏对人数有严格要求。2-4人适合双人游戏，6-8人适合大多数社交推理游戏，10人以上可考虑阵营对抗类。</p>
+                                </div>
+                            </div>
+                            <div class="guide-item">
+                                <div class="guide-icon">🎯</div>
+                                <div class="guide-content">
+                                    <h3>场景选择</h3>
+                                    <p>家庭聚会推荐大富翁、UNO等轻松游戏；朋友夜局适合剧本杀、狼人杀；公司团建推荐协作类桌游或真人密室。</p>
+                                </div>
+                            </div>
+                            <div class="guide-item">
+                                <div class="guide-icon">💡</div>
+                                <div class="guide-content">
+                                    <h3>新手引导</h3>
+                                    <p>新手参与聚会时，建议选择规则相对简单的游戏，或由老玩家担任主持人，确保游戏体验流畅。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- New Arrivals -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">近期热门剧本</h2>
+                        <a href="#" class="view-all">查看全部 &rarr;</a>
+                    </div>
+                    <div class="game-grid">
+                        <article class="game-card">
+                            <img src="https://picsum.photos/seed/script1/300/200" alt="古风本" class="card-image">
+                            <div class="card-content">
+                                <span class="card-tag">古风</span>
+                                <h3 class="card-title">长安十二时辰</h3>
+                                <p class="card-desc">沉浸式古风推理，还原大唐盛世下的悬疑故事。</p>
+                            </div>
+                        </article>
+                        <article class="game-card">
+                            <img src="https://picsum.photos/seed/script2/300/200" alt="现代本" class="card-image">
+                            <div class="card-content">
+                                <span class="card-tag">现代</span>
+                                <h3 class="card-title">弥留之国爱丽丝</h3>
+                                <p class="card-desc">生存博弈类剧本，每一个选择都关乎生死。</p>
+                            </div>
+                        </article>
+                        <article class="game-card">
+                            <img src="https://picsum.photos/seed/script3/300/200" alt="恐怖本" class="card-image">
+                            <div class="card-content">
+                                <span class="card-tag">恐怖</span>
+                                <h3 class="card-title">古木吟</h3>
+                                <p class="card-desc">微恐沉浸本，适合胆大且喜欢氛围感的玩家。</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Sidebar -->
+            <aside>
+                <!-- Hot Ranking -->
+                <div class="sidebar-card">
+                    <h4 class="sidebar-title">本周热门排行</h4>
+                    <ul class="rank-list">
+                        <li>
+                            <span class="rank-number">1</span>
+                            <a href="#">血染钟楼</a>
+                        </li>
+                        <li>
+                            <span class="rank-number">2</span>
+                            <a href="#">剧本杀：古木吟</a>
+                        </li>
+                        <li>
+                            <span class="rank-number">3</span>
+                            <a href="#">阿瓦隆</a>
+                        </li>
+                        <li>
+                            <span class="rank-number">4</span>
+                            <a href="#">只言片语</a>
+                        </li>
+                        <li>
+                            <span class="rank-number">5</span>
+                            <a href="#">鹅鸭杀</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tags -->
+                <div class="sidebar-card">
+                    <h4 class="sidebar-title">热门标签</h4>
+                    <div class="tag-cloud">
+                        <a href="#" class="tag">狼人杀</a>
+                        <a href="#" class="tag">剧本杀</a>
+                        <a href="#" class="tag">聚会游戏</a>
+                        <a href="#" class="tag">策略</a>
+                        <a href="#" class="tag">休闲</a>
+                        <a href="#" class="tag">家庭</a>
+                        <a href="#" class="tag">竞技</a>
+                        <a href="#" class="tag">解谜</a>
+                    </div>
+                </div>
+
+                <!-- CTA Sidebar -->
+                <div class="sidebar-card" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white;">
+                    <h4 class="sidebar-title" style="color: white; border-color: rgba(255,255,255,0.3);">找不到游戏？</h4>
+                    <p style="font-size: 14px; margin-bottom: 16px; opacity: 0.9;">发布你的聚会需求，寻找志同道合的玩伴。</p>
+                    <a href="#" class="cta-btn" style="background: white; color: var(--primary-color); width: 100%; text-align: center; display: block;">发布需求</a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 20px;">
+                    <span style="color: white;">游吧</span>
+                </div>
+                <p style="font-size: 14px; opacity: 0.7;">
+                    专注于提供高质量的聚会游戏资源与线下活动策划方案，致力于让每一个相聚的时刻都充满欢乐。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>游戏分类</h4>
+                <ul>
+                    <li><a href="#">社交推理</a></li>
+                    <li><a href="#">欢乐聚会</a></li>
+                    <li><a href="#">策略竞技</a></li>
+                    <li><a href="#">亲子游戏</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>资源指南</h4>
+                <ul>
+                    <li><a href="#">新手入门</a></li>
+                    <li><a href="#">场地推荐</a></li>
+                    <li><a href="#">游戏规则库</a></li>
+                    <li><a href="#">常见问题</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="#">合作洽谈</a></li>
+                    <li><a href="#">投稿建议</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 游吧 - 聚会游戏与互动娱乐指南. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+  </html>
