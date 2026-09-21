@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="单田芳书场 - 经典评书在线收听平台，收录单田芳先生经典作品如《白眉大侠》、《三侠五义》、《乱世枭雄》等，提供高清音频下载与在线播放服务。">
+    <meta name="keywords" content="单田芳,单田芳书场,评书,白眉大侠,三侠五义,乱世枭雄,在线收听,评书下载">
+    <title>单田芳书场-经典评书在线收听与全集下载平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2691E;
+            --accent-color: #F4A460;
+            --bg-color: #FAF5EB;
+            --card-bg: #FFFFFF;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 14px;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f0f0f0;
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 14px;
+            width: 150px;
+        }
+
+        .search-box button {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .tag:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-more {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: normal;
+        }
+
+        /* Book Grid */
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .book-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.15);
+        }
+
+        .card-img {
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .book-card:hover .play-icon {
+            opacity: 1;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .book-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .episode-list {
+            margin-top: auto;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        .episode-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            padding: 5px 0;
+            border-bottom: 1px dashed #f0f0f0;
+        }
+
+        .episode-item:last-child {
+            border-bottom: none;
+        }
+
+        .episode-item a {
+            color: var(--secondary-color);
+        }
+
+        /* Sidebar */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+
+        aside {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+        }
+
+        .widget-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .ranking-list {
+            list-style: none;
+        }
+
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .ranking-num {
+            width: 24px;
+            height: 24px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 12px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .ranking-item:nth-child(1) .ranking-num { background: #FFD700; }
+        .ranking-item:nth-child(2) .ranking-num { background: #C0C0C0; }
+        .ranking-item:nth-child(3) .ranking-num { background: #CD7F32; }
+
+        .player-bar {
+            background: #333;
+            color: white;
+            padding: 15px 20px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .player-info h4 { font-size: 14px; margin-bottom: 5px; }
+        .player-info p { font-size: 12px; color: #aaa; }
+        
+        .play-btn {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary-color);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* About Section */
+        .about-section {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            margin-top: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h3 { margin-bottom: 15px; color: var(--primary-color); }
+        .about-text p { margin-bottom: 15px; color: var(--text-secondary); text-align: justify; }
+
+        .about-img img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            color: #ccc;
+            padding: 50px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover { color: white; }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; height: auto; padding: 15px; gap: 15px; }
+            nav ul { gap: 15px; font-size: 14px; }
+            .search-box { width: 100%; }
+            .search-box input { width: 100%; }
+            .layout-grid { grid-template-columns: 1fr; }
+            aside { position: static; }
+            .about-content { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span>评书</span> 单田芳书场
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">作品分类</a></li>
+                    <li><a href="#">名家专栏</a></li>
+                    <li><a href="#">最新更新</a></li>
+                    <li><a href="#">下载专区</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索作品或演员...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>听单田芳，品江湖义</h1>
+        <p>重温经典评书，感受单田芳先生独特的“单味儿”。从《白眉大侠》到《乱世枭雄》，汇聚全网最全单田芳作品全集。</p>
+        <div class="hero-tags">
+            <span class="tag"># 武侠江湖</span>
+            <span class="tag"># 历史传奇</span>
+            <span class="tag"># 现代悬疑</span>
+            <span class="tag"># 评书经典</span>
+        </div>
+    </section>
+
+    <main>
+        <!-- Featured Section -->
+        <section>
+            <div class="section-title">
+                <h2>热门推荐</h2>
+                <a href="#" class="section-more">查看全部 &gt;</a>
+            </div>
+            <div class="book-grid">
+                <!-- Book Card 1 -->
+                <article class="book-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/baimei/400/300" alt="白眉大侠封面">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="book-title">白眉大侠</h3>
+                        <div class="book-meta">
+                            <span>武侠 / 450集</span>
+                            <span>热度: 98%</span>
+                        </div>
+                        <div class="episode-list">
+                            <div class="episode-item">
+                                <a href="#">第001回 汴梁城三侠聚首</a>
+                            </div>
+                            <div class="episode-item">
+                                <a href="#">第002回 金龙探穴</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book Card 2 -->
+                <article class="book-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/sangu/400/300" alt="三侠五义封面">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="book-title">三侠五义</h3>
+                        <div class="book-meta">
+                            <span>古典 / 240集</span>
+                            <span>热度: 95%</span>
+                        </div>
+                        <div class="episode-list">
+                            <div class="episode-item">
+                                <a href="#">第001回 蔡蓉寻亲</a>
+                            </div>
+                            <div class="episode-item">
+                                <a href="#">第002回 龙图公断</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book Card 3 -->
+                <article class="book-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/luanshi/400/300" alt="乱世枭雄封面">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="book-title">乱世枭雄</h3>
+                        <div class="book-meta">
+                            <span>历史 / 320集</span>
+                            <span>热度: 92%</span>
+                        </div>
+                        <div class="episode-list">
+                            <div class="episode-item">
+                                <a href="#">第001回 青岛风云起</a>
+                            </div>
+                            <div class="episode-item">
+                                <a href="#">第002回 张作霖出山</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book Card 4 -->
+                <article class="book-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/xiaoshuo/400/300" alt="百年风云封面">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="book-title">百年风云</h3>
+                        <div class="book-meta">
+                            <span>近代史 / 500集</span>
+                            <span>热度: 90%</span>
+                        </div>
+                        <div class="episode-list">
+                            <div class="episode-item">
+                                <a href="#">第001回 晚清变局</a>
+                            </div>
+                            <div class="episode-item">
+                                <a href="#">第002回 辛亥革命</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <div class="layout-grid">
+            <!-- Latest Updates -->
+            <section>
+                <div class="section-title">
+                    <h2>最新更新</h2>
+                </div>
+                <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: var(--shadow);">
+                    <ul class="ranking-list">
+                        <li class="ranking-item">
+                            <a href="#">百年风云 <span style="color: #999; font-size: 12px; margin-left: auto;">刚刚更新</span></a>
+                        </li>
+                        <li class="ranking-item">
+                            <a href="#">乱世枭雄 <span style="color: #999; font-size: 12px; margin-left: auto;">10分钟前</span></a>
+                        </li>
+                        <li class="ranking-item">
+                            <a href="#">三侠五义 <span style="color: #999; font-size: 12px; margin-left: auto;">30分钟前</span></a>
+                        </li>
+                        <li class="ranking-item">
+                            <a href="#">童林传 <span style="color: #999; font-size: 12px; margin-left: auto;">1小时前</span></a>
+                        </li>
+                        <li class="ranking-item">
+                            <a href="#">乱世枭雄 <span style="color: #999; font-size: 12px; margin-left: auto;">2小时前</span></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section-title" style="margin-top: 40px;">
+                    <h2>关于单田芳先生</h2>
+                </div>
+                <div class="about-section">
+                    <div class="about-content">
+                        <div class="about-text">
+                            <h3>单田芳：评书艺术的一代宗师</h3>
+                            <p>单田芳（1934年12月17日—2018年9月11日），出生于辽宁省营口市，中国著名评书表演艺术家、作家。他一生口述了200多部（集）长篇评书作品，作品总量达3亿余字。</p>
+                            <p>单田芳的评书艺术风格独树一帜，融合了京韵大鼓、相声等多种艺术形式，语言生动幽默，情节跌宕起伏，塑造了无数经典的江湖人物形象。他的声音洪亮、韵味醇厚，被广大听众亲切地称为“单味儿”。代表作品包括《白眉大侠》、《三侠五义》、《乱世枭雄》、《百年风云》等，深深影响了几代中国人。</p>
+                        </div>
+                        <div class="about-img">
+                            <img src="https://picsum.photos/seed/shantianfang/500/350" alt="单田芳先生画像">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sidebar -->
+            <aside>
+                <!-- Top Ranking -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">全网播放榜</h3>
+                    <ul class="ranking-list">
+                        <li class="ranking-item">
+                            <span class="ranking-num">1</span>
+                            <a href="#">白眉大侠</a>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="ranking-num">2</span>
+                            <a href="#">乱世枭雄</a>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="ranking-num">3</span>
+                            <a href="#">三侠五义</a>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="ranking-num">4</span>
+                            <a href="#">童林传</a>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="ranking-num">5</span>
+                            <a href="#">乱世枭雄</a>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="ranking-num">6</span>
+                            <a href="#">百年风云</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- App Download -->
+                <div class="sidebar-widget" style="background: var(--primary-color); color: white;">
+                    <h3 class="widget-title" style="border-bottom-color: rgba(255,255,255,0.3);">下载单田芳书场APP</h3>
+                    <p style="font-size: 13px; margin-bottom: 15px; opacity: 0.9;">随时随地收听，离线下载不迷路。</p>
+                    <button style="width: 100%; padding: 10px; background: white; color: var(--primary-color); border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">立即下载</button>
+                </div>
+
+                <!-- Player Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">正在播放</h3>
+                    <div class="player-bar">
+                        <div class="player-info">
+                            <h4>白眉大侠</h4>
+                            <p>第001回 汴梁城三侠聚首</p>
+                        </div>
+                        <button class="play-btn">▶</button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>单田芳书场</h4>
+                <p style="font-size: 14px; color: #999; line-height: 1.8;">
+                    致力于传承和弘扬中国传统评书艺术。我们致力于提供最优质的单田芳先生作品全集收听服务，让经典之声流传千古。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">作品分类</a></li>
+                    <li><a href="#">名家专栏</a></li>
+                    <li><a href="#">最新更新</a></li>
+                    <li><a href="#">下载专区</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <p style="font-size: 14px; color: #999;">
+                    微信公众号<br>
+                    微博账号
+                </p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 单田芳书场. All Rights Reserved. 仅供学习交流使用，版权归原作者所有。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
