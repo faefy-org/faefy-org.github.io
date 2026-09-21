@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冒险岛风灵使者 - 风灵使者加点配装与实战攻略指南</title>
+    <meta name="description" content="本站提供冒险岛风灵使者职业详解，包括技能加点方案、装备搭配推荐、连招技巧、BOSS攻略及新手入门指南，助你快速打造强力风灵使者。">
+    <meta name="keywords" content="冒险岛风灵使者,冒险岛技能加点,冒险岛装备推荐,冒险岛BOSS攻略,风灵使者攻略">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6B8E23;
+            --primary-dark: #556B2F;
+            --accent-color: #FFD700;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-body: #f4f7f6;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --container-width: 1200px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "Heiti SC", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e0f7fa 0%, #fff9c4 100%);
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(107, 142, 35, 0.4);
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Section Styling */
+        section {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+
+        .skill-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .skill-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .skill-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Guide List */
+        .guide-list li {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+
+        .guide-list li:last-child {
+            border-bottom: none;
+        }
+
+        .guide-list a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .guide-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .guide-tag {
+            font-size: 12px;
+            background: #eee;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #666;
+        }
+
+        /* Equipment Table */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f8f8f8;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #fafafa;
+        }
+
+        /* Sidebar Widget */
+        .sidebar-widget {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+        }
+
+        .stat-value {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item .faq-question::after {
+            content: '+';
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">冒险岛<span>风灵使者</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#overview">职业概览</a></li>
+                    <li><a href="#skills">技能加点</a></li>
+                    <li><a href="#equipment">装备推荐</a></li>
+                    <li><a href="#boss">BOSS攻略</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>风灵使者 - 风之精灵的守护者</h1>
+                <p>作为二转职业中的物理输出担当，风灵使者拥有极高的机动性和爆发伤害。掌握风元素的力量，在冒险岛的战场上自由穿梭，精准打击敌人。</p>
+                <a href="#skills" class="cta-button">开始加点指南</a>
+            </div>
+        </section>
+
+        <div class="container content-grid">
+            <!-- Left Column -->
+            <div class="main-content">
+                <!-- Overview -->
+                <section id="overview">
+                    <h2 class="section-title">职业概览</h2>
+                    <p>风灵使者是魔法师二转后的分支职业，但与元素师不同，风灵使者专注于物理攻击。其核心机制是“风之精灵”系统，通过引导风元素来增强自身的攻击力和速度。</p>
+                    <br>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-icon">💨</div>
+                            <div class="skill-name">风之精灵</div>
+                            <div class="skill-desc">核心召唤技能，提升攻速与命中。</div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">⚡</div>
+                            <div class="skill-name">风刃</div>
+                            <div class="skill-desc">快速发射风刃进行远程打击。</div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">🌪️</div>
+                            <div class="skill-name">风卷</div>
+                            <div class="skill-desc">控制技能，击退周围敌人。</div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon">🛡️</div>
+                            <div class="skill-name">风盾</div>
+                            <div class="skill-desc">被动技能，提供额外的防御力。</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Skills Guide -->
+                <section id="skills">
+                    <h2 class="section-title">技能加点方案</h2>
+                    <p>风灵使者的加点策略主要取决于你的玩法偏好。以下是目前主流的“高爆发流”加点思路：</p>
+                    <br>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>技能名称</th>
+                                    <th>加点优先级</th>
+                                    <th>技能描述</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>风之精灵</td>
+                                    <td><span style="color:red; font-weight:bold;">MAX (满)</span></td>
+                                    <td>核心被动，提升攻击力与速度，必满。</td>
+                                </tr>
+                                <tr>
+                                    <td>风刃</td>
+                                    <td><span style="color:red; font-weight:bold;">MAX (满)</span></td>
+                                    <td>主力单体输出技能，CD短，伤害高。</td>
+                                </tr>
+                                <tr>
+                                    <td>风卷</td>
+                                    <td>MAX (满)</td>
+                                    <td>群控技能，BOSS战必不可少。</td>
+                                </tr>
+                                <tr>
+                                    <td>风神之怒</td>
+                                    <td>MAX (满)</td>
+                                    <td>终极爆发技能，冷却时间较长。</td>
+                                </tr>
+                                <tr>
+                                    <td>风盾</td>
+                                    <td>10 (前期点满)</td>
+                                    <td>提供生存能力，后期可减点。</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Equipment -->
+                <section id="equipment">
+                    <h2 class="section-title">装备推荐与属性</h2>
+                    <p>风灵使者对敏捷和力量有较高要求，同时攻击速度（ASPD）是提升DPS的关键指标。</p>
+                    <br>
+                    <ul class="guide-list">
+                        <li>
+                            <a href="#">武器：高敏捷的风灵法杖或风灵长枪</a>
+                            <span class="guide-tag">武器</span>
+                        </li>
+                        <li>
+                            <a href="#">防具：优先选择加敏捷和攻击速度的套装</a>
+                            <span class="guide-tag">防具</span>
+                        </li>
+                        <li>
+                            <a href="#">饰品：风之精灵加成属性的首饰</a>
+                            <span class="guide-tag">饰品</span>
+                        </li>
+                        <li>
+                            <a href="#">核心属性：攻击速度 6% (6%ASPD) + 敏捷</a>
+                            <span class="guide-tag">属性</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Boss Guide -->
+                <section id="boss">
+                    <h2 class="section-title">BOSS实战技巧</h2>
+                    <p>在面对像“阿卡伊勒”或“塞恩”这样的高难度BOSS时，风灵使者的风卷技能是保命的关键。</p>
+                    <br>
+                    <div style="background: #eef2f3; padding: 20px; border-left: 4px solid var(--primary-color); border-radius: 4px;">
+                        <strong>连招建议：</strong><br>
+                        1. 开启风盾进入战斗。<br>
+                        2. 使用风卷打断BOSS读条。<br>
+                        3. 持续使用风刃输出，保持距离。<br>
+                        4. 保留风神之怒在BOSS释放大招时使用。
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">职业数据</h3>
+                    <div class="stat-row">
+                        <span class="stat-label">职业定位</span>
+                        <span class="stat-value">物理输出</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">主要属性</span>
+                        <span class="stat-value">敏捷 (LUK)</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">攻击速度</span>
+                        <span class="stat-value">6% / 6</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">特色技能</span>
+                        <span class="stat-value">风之精灵</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">常见问题 (FAQ)</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">风灵使者适合新手吗？</div>
+                        <div class="faq-answer">是的，风灵使者拥有不错的生存能力和操作手感，是魔法师二转中比较适合新手的职业。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">风灵使者需要堆敏捷吗？</div>
+                        <div class="faq-answer">非常需要。敏捷直接决定了你的攻击速度和命中率，是风灵使者的核心属性。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何提升风之精灵的伤害？</div>
+                        <div class="faq-answer">主要通过装备上的风属性加成、宠物技能以及特定的套装效果来提升。</div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>冒险岛攻略</h3>
+                    <p>专注提供最全的冒险岛职业攻略、地图指南及游戏资讯，助您在冒险岛的世界中畅游无阻。</p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速导航</h3>
+                    <ul>
+                        <li><a href="#">职业大全</a></li>
+                        <li><a href="#">技能模拟器</a></li>
+                        <li><a href="#">BOSS时间表</a></li>
+                        <li><a href="#">装备排行榜</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关于本站</h3>
+                    <ul>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">网站地图</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 冒险岛风灵使者攻略站. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
