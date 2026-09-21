@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="陈美娇官方网站。提供关于陈美娇的详细介绍、个人经历、代表作品、相关资讯及粉丝社区互动。">
+    <meta name="keywords" content="陈美娇, 陈美娇官网, 陈美娇介绍, 陈美娇作品, 陈美娇资讯">
+    <title>陈美娇 - 个人主页与作品展示平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .stat-item span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 4px solid var(--bg-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .profile-name {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .profile-role {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-bio {
+            text-align: left;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .bio-text p {
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background-color: #ecf0f1;
+            color: var(--text-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Works Section */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+        }
+
+        .work-thumb {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .work-info {
+            padding: 1.5rem;
+        }
+
+        .work-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .work-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .work-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .work-link {
+            display: inline-block;
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .work-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #e0e0e0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #ecf0f1;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-info p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .social-links a {
+            color: #ecf0f1;
+            margin-left: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 1rem 0;
+            }
+
+            nav ul {
+                display: none; /* Simplified for static showcase */
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                margin-top: 1rem;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">陈美娇<span>主页</span></a>
+            <div class="mobile-menu-btn" onclick="document.querySelector('nav ul').classList.toggle('show')">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="#about">关于我</a></li>
+                    <li><a href="#works">代表作品</a></li>
+                    <li><a href="#timeline">经历</a></li>
+                    <li><a href="#faq">常见问答</a></li>
+                    <li><a href="#contact">联系合作</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>陈美娇</h1>
+                <p>探索创作者的内心世界与艺术历程</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <strong>12</strong>
+                        <span>年从业经验</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>45</strong>
+                        <span>出版作品</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>10w+</strong>
+                        <span>粉丝关注</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">关于陈美娇</h2>
+                <div class="about-grid">
+                    <div class="profile-card">
+                        <img src="https://picsum.photos/seed/meijiao/300/300" alt="陈美娇形象照" class="profile-img">
+                        <h3 class="profile-name">陈美娇</h3>
+                        <p class="profile-role">独立插画师 / 策展人</p>
+                        <p style="color: #666; font-size: 0.9rem;">致力于将传统美学与现代设计融合</p>
+                    </div>
+                    <div class="profile-bio">
+                        <div class="bio-text">
+                            <p>陈美娇，中国内地新生代插画艺术家，以其细腻的笔触和独特的色彩运用在业界崭露头角。她专注于探索自然与人文的交汇点，擅长通过视觉语言讲述富有情感的故事。</p>
+                            <p>毕业于中央美术学院油画系，后赴欧洲深造现代艺术。她的作品多次入选国内外重要艺术展览，并出版了多部个人画集。陈美娇不仅活跃于艺术创作领域，还积极参与公共艺术教育，致力于提升大众的审美素养。</p>
+                            <div class="tags">
+                                <span class="tag">油画</span>
+                                <span class="tag">数字插画</span>
+                                <span class="tag">艺术策展</span>
+                                <span class="tag">色彩理论</span>
+                                <span class="tag">视觉设计</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Section -->
+        <section id="works" class="section" style="background-color: #fff;">
+            <div class="container">
+                <h2 class="section-title">精选代表作品</h2>
+                <div class="works-grid">
+                    <!-- Work 1 -->
+                    <article class="work-card">
+                        <img src="https://picsum.photos/seed/art1/400/300" alt="作品封面：晨曦" class="work-thumb">
+                        <div class="work-info">
+                            <h3 class="work-title">晨曦系列：城市微光</h3>
+                            <div class="work-meta">2023年 · 油画 · 60x80cm</div>
+                            <p class="work-desc">这幅作品捕捉了清晨第一缕阳光穿透城市雾霾的瞬间，象征着希望与重生。通过冷暖色调的强烈对比，展现了现代都市的复杂情感。</p>
+                            <a href="#" class="work-link">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Work 2 -->
+                    <article class="work-card">
+                        <img src="https://picsum.photos/seed/art2/400/300" alt="作品封面：静谧花园" class="work-thumb">
+                        <div class="work-info">
+                            <h3 class="work-title">静谧花园</h3>
+                            <div class="work-meta">2022年 · 数字插画 · 1920x1080</div>
+                            <p class="work-desc">受印象派启发，以花园为背景，描绘了午后时光的慵懒与宁静。色彩柔和，笔触轻盈，旨在为观者带来心灵的慰藉。</p>
+                            <a href="#" class="work-link">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Work 3 -->
+                    <article class="work-card">
+                        <img src="https://picsum.photos/seed/art3/400/300" alt="作品封面：记忆碎片" class="work-thumb">
+                        <div class="work-info">
+                            <h3 class="work-title">记忆碎片</h3>
+                            <div class="work-meta">2021年 · 系列插画 · 单幅</div>
+                            <p class="work-desc">探索人类记忆的不可靠性，通过破碎的图像和拼贴手法，表达潜意识中的焦虑与渴望。</p>
+                            <a href="#" class="work-link">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Work 4 -->
+                    <article class="work-card">
+                        <img src="https://picsum.photos/seed/art4/400/300" alt="作品封面：归途" class="work-thumb">
+                        <div class="work-info">
+                            <h3 class="work-title">归途</h3>
+                            <div class="work-meta">2020年 · 版画 · 50x70cm</div>
+                            <p class="work-desc">以版画形式呈现的乡村归途图，线条粗犷有力，充满了泥土气息，是对故乡深情的告白。</p>
+                            <a href="#" class="work-link">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="section">
+            <div class="container">
+                <h2 class="section-title">成长历程</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2015年</div>
+                        <div class="timeline-content">
+                            <h3>毕业创作展</h3>
+                            <p>以毕业作品《远方的风》获得学院年度金奖，确立个人艺术风格。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2018年</div>
+                        <div class="timeline-content">
+                            <h3>首次个展</h3>
+                            <p>在上海当代艺术馆举办《光影之间》个人艺术展，展出油画与装置艺术。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2020年</div>
+                        <div class="timeline-content">
+                            <h3>跨界合作</h3>
+                            <p>与知名时尚杂志《VOGUE》合作，担任其年度特刊的视觉总监。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023年</div>
+                        <div class="timeline-content">
+                            <h3>新书发布</h3>
+                            <p>出版个人画集《陈美娇：色彩与情感的独白》，全国各大书店同步发售。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section" style="background-color: #fff;">
+            <div class="container">
+                <h2 class="section-title">常见问答</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">Q: 如何购买陈美娇的画作或画集？</div>
+                        <div class="faq-answer">A: 您可以通过本网站“联系合作”页面下的合作意向表单与我取得联系，或关注官方授权的线上艺术商城获取正版作品。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Q: 是否接受商业委托？</div>
+                        <div class="faq-answer">A: 是的，我接受各类商业插画、品牌视觉设计和艺术展览策划的委托。请通过邮件详细说明您的需求。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Q: 作品是否可以用于商用？</div>
+                        <div class="faq-answer">A: 本网站展示的原创作品版权均归陈美娇所有，未经授权严禁用于任何商业用途或二次创作。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Q: 有没有开设线下工作室？</div>
+                        <div class="faq-answer">A: 目前主要以远程办公和线上创作为主，偶尔会在北京、上海等地举办小型看画会，具体信息请关注公众号公告。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section id="contact" class="section">
+            <div class="container" style="text-align: center;">
+                <h2 style="color: var(--primary-color); margin-bottom: 1rem;">保持联系</h2>
+                <p style="color: var(--text-light); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    欢迎订阅我的艺术通讯，获取最新的创作动态、展览信息和独家内容。
+                </p>
+                <form onsubmit="event.preventDefault(); alert('感谢您的订阅！');">
+                    <div style="display: flex; justify-content: center; gap: 10px; max-width: 500px; margin: 0 auto;">
+                        <input type="email" placeholder="请输入您的邮箱地址" required style="padding: 12px; border: 1px solid #ddd; border-radius: 4px; flex: 1;">
+                        <button type="submit" style="padding: 12px 24px; background-color: var(--accent-color); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600;">订阅</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-info">
+                <p>&copy; 2023 陈美娇个人主页. All Rights Reserved.</p>
+                <p>京ICP备XXXXXXXX号-1</p>
+            </div>
+            <div class="social-links">
+                <a href="#" aria-label="微博">微博</a>
+                <a href="#" aria-label="微信">微信</a>
+                <a href="#" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="邮箱">Email</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
