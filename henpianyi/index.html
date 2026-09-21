@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="很便宜-极致性价比生活指南，为您提供超值购物、省钱攻略、特价商品推荐及消费避坑指南，帮助您用最少的钱获得最好的生活体验。">
+    <meta name="keywords" content="很便宜,省钱攻略,超值购物,特价商品,性价比">
+    <title>很便宜-极致性价比生活指南与省钱攻略</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #f59e0b;
+            --primary-hover: #d97706;
+            --text-main: #1f2937;
+            --text-secondary: #4b5563;
+            --bg-body: #f3f4f6;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .grid {
+            display: grid;
+            gap: var(--spacing-unit);
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+        }
+
+        .flex-between {
+            justify-content: space-between;
+        }
+
+        .flex-center {
+            justify-content: center;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 2rem;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-bar input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #92400e;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #b45309;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Categories */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 24px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .category-grid {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            margin-bottom: 3rem;
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .category-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .category-count {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Deals List */
+        .deals-section {
+            margin-bottom: 3rem;
+        }
+
+        .deals-grid {
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+
+        .deal-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .deal-card:hover {
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .deal-image {
+            width: 100%;
+            height: 180px;
+            background-color: #e5e7eb;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .deal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .deal-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #ef4444;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .deal-tag.fresh {
+            background-color: #10b981;
+        }
+
+        .deal-content {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .deal-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .deal-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .deal-price {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #dc2626;
+            margin-top: auto;
+            display: flex;
+            align-items: baseline;
+            gap: 0.25rem;
+        }
+
+        .deal-price small {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background-color: var(--bg-card);
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .guide-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .guide-item {
+            padding: 1rem;
+        }
+
+        .guide-item h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .guide-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .guide-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.25rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 1.25rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.25rem 1.25rem 1.25rem;
+            max-height: 200px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: #f9fafb;
+            padding: 3rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: #9ca3af;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #6b7280;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .search-bar {
+                width: 100%;
+                margin: 0;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <span>很便宜</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索超值好物、省钱攻略...">
+                <button type="button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </button>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">特价榜单</a>
+                <a href="#">省钱技巧</a>
+                <a href="#">社区晒单</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>发现生活中的很便宜</h1>
+                <p>拒绝隐形消费，掌握全网最低价。我们为您筛选全网最具性价比的商品与服务，助您轻松实现精打细算。</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Categories -->
+            <section class="category-section">
+                <h2 class="section-title">热门省钱分类</h2>
+                <div class="grid category-grid">
+                    <div class="category-card">
+                        <span class="category-icon">🛒</span>
+                        <div class="category-name">日用百货</div>
+                        <div class="category-count">2,340+ 精选</div>
+                    </div>
+                    <div class="category-card">
+                        <span class="category-icon">👕</span>
+                        <div class="category-name">服饰鞋包</div>
+                        <div class="category-count">1,890+ 精选</div>
+                    </div>
+                    <div class="category-card">
+                        <span class="category-icon">🍎</span>
+                        <div class="category-name">生鲜食品</div>
+                        <div class="category-count">560+ 精选</div>
+                    </div>
+                    <div class="category-card">
+                        <span class="category-icon">📱</span>
+                        <div class="category-name">数码家电</div>
+                        <div class="category-count">890+ 精选</div>
+                    </div>
+                    <div class="category-card">
+                        <span class="category-icon">💄</span>
+                        <div class="category-name">美妆护肤</div>
+                        <div class="category-count">1,200+ 精选</div>
+                    </div>
+                    <div class="category-card">
+                        <span class="category-icon">🏠</span>
+                        <div class="category-name">家居家装</div>
+                        <div class="category-count">320+ 精选</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Deals -->
+            <section class="deals-section">
+                <div class="flex flex-between" style="margin-bottom: 1.5rem;">
+                    <h2 class="section-title">今日超值推荐</h2>
+                    <a href="#" style="color: var(--primary-color); font-weight: 600;">查看更多 ></a>
+                </div>
+                <div class="grid deals-grid">
+                    <!-- Deal 1 -->
+                    <article class="deal-card">
+                        <div class="deal-image">
+                            <img src="https://picsum.photos/seed/cheap1/400/300" alt="纯棉简约T恤">
+                            <span class="deal-tag fresh">限时特惠</span>
+                        </div>
+                        <div class="deal-content">
+                            <h3 class="deal-title">纯棉简约T恤套装（3件装）透气舒适</h3>
+                            <div class="deal-meta">
+                                <span>库存紧张</span>
+                                <span>已售 1.2k+</span>
+                            </div>
+                            <div class="deal-price">
+                                ¥39.9 <small>¥89.9</small>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Deal 2 -->
+                    <article class="deal-card">
+                        <div class="deal-image">
+                            <img src="https://picsum.photos/seed/cheap2/400/300" alt="多功能厨房剪刀">
+                            <span class="deal-tag">包邮</span>
+                        </div>
+                        <div class="deal-content">
+                            <h3 class="deal-title">不锈钢多功能厨房剪刀 厨房神器</h3>
+                            <div class="deal-meta">
+                                <span>好评率 99%</span>
+                                <span>已售 5k+</span>
+                            </div>
+                            <div class="deal-price">
+                                ¥12.5 <small>¥29.9</small>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Deal 3 -->
+                    <article class="deal-card">
+                        <div class="deal-image">
+                            <img src="https://picsum.photos/seed/cheap3/400/300" alt="便携式榨汁杯">
+                            <span class="deal-tag fresh">新品</span>
+                        </div>
+                        <div class="deal-content">
+                            <h3 class="deal-title">便携式USB榨汁杯 早餐营养好帮手</h3>
+                            <div class="deal-meta">
+                                <span>秒杀中</span>
+                                <span>已售 3.5k+</span>
+                            </div>
+                            <div class="deal-price">
+                                ¥45.0 <small>¥129.0</small>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Deal 4 -->
+                    <article class="deal-card">
+                        <div class="deal-image">
+                            <img src="https://picsum.photos/seed/cheap4/400/300" alt="收纳整理箱">
+                        </div>
+                        <div class="deal-content">
+                            <h3 class="deal-title">家用加厚收纳整理箱 防尘防潮</h3>
+                            <div class="deal-meta">
+                                <span>省心之选</span>
+                                <span>已售 8k+</span>
+                            </div>
+                            <div class="deal-price">
+                                ¥19.9 <small>¥39.9</small>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Guide Section -->
+            <section class="guide-section">
+                <h2 class="section-title">省钱实用指南</h2>
+                <div class="grid guide-grid">
+                    <article class="guide-item">
+                        <h3>如何识别隐形消费陷阱</h3>
+                        <p>在追求低价的同时，了解常见的价格套路，避免因小失大，确保每一分钱都花在刀刃上。</p>
+                        <a href="#" class="guide-link">阅读全文 &rarr;</a>
+                    </article>
+                    <article class="guide-item">
+                        <h3>优惠券叠加使用技巧</h3>
+                        <p>掌握平台满减、店铺优惠券与现金红包的叠加规则，轻松实现“1+1>2”的省钱效果。</p>
+                        <a href="#" class="guide-link">阅读全文 &rarr;</a>
+                    </article>
+                    <article class="guide-item">
+                        <h3>二手交易平台淘好物</h3>
+                        <p>闲鱼等平台的验货宝服务与验机技巧，教您如何以极低的价格淘到成色完美的二手好物。</p>
+                        <a href="#" class="guide-link">阅读全文 &rarr;</a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section class="faq-section">
+                <h2 class="section-title">常见问题解答</h2>
+                <div class="faq-item">
+                    <div class="faq-question">这些商品的价格都是实时的吗？</div>
+                    <div class="faq-answer">
+                        我们的数据库会定期抓取各大主流电商平台的数据，但商品价格受商家活动影响波动较大，建议您下单前再次确认。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何保证推荐的性价比？</div>
+                    <div class="faq-answer">
+                        我们采用多维度的比价算法，结合销量、用户评价和价格趋势，筛选出当前市场最具竞争力的商品。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">点击链接会跳转到哪里？</div>
+                    <div class="faq-answer">
+                        为了您的信息安全，我们提供的是商品详情页的指引链接，最终购买页面请以商家展示为准。
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="grid footer-grid">
+                <div class="footer-col">
+                    <h4>关于很便宜</h4>
+                    <p style="color: #9ca3af; margin-bottom: 1rem;">专注于为消费者提供最精准的比价服务与省钱攻略，致力于打造透明的消费环境。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>热门分类</h4>
+                    <ul>
+                        <li><a href="#">日用百货</a></li>
+                        <li><a href="#">数码家电</a></li>
+                        <li><a href="#">美妆护肤</a></li>
+                        <li><a href="#">服饰鞋包</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">使用条款</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#">网站地图</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">小红书</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 很便宜省钱指南 版权所有.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    // Close others
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
